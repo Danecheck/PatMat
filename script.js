@@ -10,24 +10,18 @@ const mat = "<img src='img/mat.png'>";
 let kodFigurek = "";
 let i=0;
 let patMat = false;
-let pPat=0 ; 
-let pMat=0;
 
-while (i<Math.random()*20) {
+while (i<10) {
   i++;
-  if (Math.random()<0.5){
-    kodFigurek += "<div>" + (patMat ? pat + mat : mat + pat) + "</div>";
-    pPat++;
-    pMat++;
-  }else {
-    kodFigurek += "<div>" + (patMat ? mat + pat : pat + mat) + "</div>";
-    pMat++;
-    pPat++;
+  if (patMat == false){
+    kodFigurek += "<div>" + pat + mat + "</div>";
+    patMat = true;
+  }else{
+    kodFigurek += "<div>" + mat + pat + "</div>";
+    patMat = false;
   }
-  //i++;
-  //kodFigurek += "<div>" + (patMat ? pat + mat : mat + pat) + "</div>";
 }
 
 figurky.innerHTML = kodFigurek; // vloží kód řady obrázků, kterou požadujeme vykreslit
-pocetPat.innerText = pPat;         // vypíše počet vykreslených figurek Pata (všech deset)
-pocetMat.innerText = pMat;         // vypíše počet vykreslenách figurek Mata (10)
+pocetPat.innerText = i;         // vypíše počet vykreslených figurek Pata (všech deset)
+pocetMat.innerText = i;         // vypíše počet vykreslenách figurek Mata (10)
