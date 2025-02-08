@@ -16,11 +16,13 @@ let pMat=0;
 while (i<Math.random()*20) {
   i++;
   if (Math.random()<0.5){
-    kodFigurek += "<div>" + pat + "</div>";
+    kodFigurek += "<div>" + (patMat ? pat + mat : mat + pat) + "</div>";
     pPat++;
-  }else {
-    kodFigurek += "<div>" + mat + "</div>";
     pMat++;
+  }else {
+    kodFigurek += "<div>" + (patMat ? mat + pat : pat + mat) + "</div>";
+    pMat++;
+    pPat++;
   }
   //i++;
   //kodFigurek += "<div>" + (patMat ? pat + mat : mat + pat) + "</div>";
